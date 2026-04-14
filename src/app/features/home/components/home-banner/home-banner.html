@@ -1,0 +1,40 @@
+<section class="home-banner">
+  <div class="home-banner__container">
+    <div class="home-banner__content">
+      <h1 class="home-banner__title">
+        Creando el
+        <span class="home-banner__title-accent">Futuro del Descubrimiento</span>
+        de Servicios.
+      </h1>
+
+      <p class="home-banner__description">
+        Experimente una galería de servicios de clase mundial donde tendrá distintas
+        categorías para escoger según su necesidad.
+      </p>
+
+      <div class="home-banner__actions">
+        <a class="home-banner__button" [routerLink]="ctaLink">
+          {{ ctaText }}
+        </a>
+      </div>
+    </div>
+
+    <div class="home-banner__visual">
+      <div class="home-banner__image-wrapper">
+        <img
+          class="home-banner__image"
+          [src]="imageUrl"
+          [alt]="imageAlt"
+        />
+
+        <div class="home-banner__badge">
+          <h3 class="home-banner__badge-title">Calidad Premium</h3>
+          <p class="home-banner__badge-text">
+            Cada servicio en nuestro catálogo es examinado a mano para garantizar
+            la excelencia.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

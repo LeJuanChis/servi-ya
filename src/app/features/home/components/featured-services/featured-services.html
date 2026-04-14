@@ -1,0 +1,58 @@
+<section class="featured-services">
+  <div class="featured-services__container">
+    <div class="featured-services__header">
+      <div>
+        <h2 class="featured-services__title">{{ sectionTitle }}</h2>
+        <p class="featured-services__description">
+          {{ sectionDescription }}
+        </p>
+      </div>
+
+      <a class="featured-services__view-all" [routerLink]="viewAllLink">
+        {{ viewAllText }} →
+      </a>
+    </div>
+
+    <div class="featured-services__grid">
+      @for (service of services; track service.title) {
+        <article
+          class="featured-services__card"
+          [class.featured-services__card--large]="service.size === 'large'"
+          [class.featured-services__card--small]="service.size === 'small'"
+          [class.featured-services__card--top-left]="service.layout === 'top-left'"
+          [class.featured-services__card--top-right]="service.layout === 'top-right'"
+          [class.featured-services__card--bottom-left]="service.layout === 'bottom-left'"
+          [class.featured-services__card--bottom-right]="service.layout === 'bottom-right'"
+        >
+          <div class="featured-services__image-wrapper">
+            <img
+              class="featured-services__image"
+              [src]="service.imageUrl"
+              [alt]="service.imageAlt"
+            />
+          </div>
+
+          <div class="featured-services__content">
+            <span class="featured-services__category">
+              {{ service.category }}
+            </span>
+
+            <h3 class="featured-services__card-title">
+              {{ service.title }}
+            </h3>
+
+            @if (service.description) {
+              <p class="featured-services__card-description">
+                {{ service.description }}
+              </p>
+            }
+
+            <a class="featured-services__link" [routerLink]="service.ctaLink">
+              {{ service.ctaText }} →
+            </a>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

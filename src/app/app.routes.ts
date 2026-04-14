@@ -6,9 +6,9 @@ import { Contact } from './features/contact/pages/contact/contact';
 
 export const routes: Routes = [
   { path: '', component: Home, title: 'Inicio' },
-  { path: 'service-detail', component: ServiceDetail, title: 'Detalle del servicio' },
-  { path: 'service-list', component: ServiceList, title: 'Lista de servicios' },
-  { path: 'contact', component: Contact, title: 'Contacto' },
+  { path: 'servicios/:id', component: ServiceDetail, title: 'Detalle del servicio' },
+  { path: 'servicios', component: ServiceList, title: 'Lista de servicios' },
+  { path: 'contacto', component: Contact, title: 'Contacto' },
   { path: '**', redirectTo: '' }
 
 ];

@@ -1,0 +1,15 @@
+.footer {
+  padding: 20px 0;
+  text-align: center;
+  background-color: #f8f8f8;
+  border-top: 1px solid #e5e7eb;
+}
+
+.footer__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: rgb(113, 113, 113)
+}
