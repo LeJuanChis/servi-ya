@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "slug": "mentoria-tecnologica-estrategica",
+    "category": "education",
+    "badge": "EDUCACIÓN",
+    "title": "Mentoría Tecnológica Estratégica",
+    "shortDescription": "Sesiones individuales con veteranos de la industria para acelerar su carrera en arquitectura de software y liderazgo.",
+    "description": "Experimente una mentoría guiada por especialistas del sector para diseñar una ruta de crecimiento clara, fortalecer su perfil técnico y tomar mejores decisiones profesionales con acompañamiento personalizado.",
+    "price": 120,
+    "priceSuffix": "/ hr",
+    "imageUrl": "/images/service-education-card.webp",
+    "imageAlt": "Mentoría tecnológica estratégica",
+    "detailMainImage": "/images/service-education-card.webp",
+    "detailSideTopImage": "/images/service-travel.jpg",
+    "detailSideBottomImage": "/images/service-retail.jpg",
+    "featured": true,
+    "featuredLayout": "top-left",
+    "features": [
+      {
+        "title": "Agentes personalizados",
+        "description": "Personaliza tus propios agentes de IA para que sean una extensión de tiempo completo."
+      },
+      {
+        "title": "Rentabilidad garantizada",
+        "description": "Disminuya costos y aumente la productividad de tu empresa en tiempo récord."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "auditoria-de-infraestructura-en-la-nube",
+    "category": "technology",
+    "badge": "TECNOLOGÍA",
+    "title": "Auditoría de Infraestructura en la Nube",
+    "shortDescription": "Mapeo de optimización y seguridad para despliegues en la nube a escala empresarial. Minimice costos, maximice la velocidad.",
+    "description": "Experimente una auditoría integral enfocada en rendimiento, escalabilidad y seguridad. Trabajamos sobre la arquitectura actual para identificar cuellos de botella, reducir costos y construir una base tecnológica más resistente.",
+    "price": 2500,
+    "priceSuffix": " fijo",
+    "imageUrl": "/images/service-cloud-audit.jpg",
+    "imageAlt": "Auditoría de infraestructura en la nube",
+    "detailMainImage": "/images/service-cloud-audit.jpg",
+    "detailSideTopImage": "/images/service-travel.jpg",
+    "detailSideBottomImage": "/images/service-retail.jpg",
+    "featured": true,
+    "featuredLayout": "top-right",
+    "features": [
+      {
+        "title": "Agentes personalizados",
+        "description": "Personaliza tus propios agentes de IA para que sean una extensión de tiempo completo."
+      },
+      {
+        "title": "Rentabilidad garantizada",
+        "description": "Disminuya costos y aumente la productividad de tu empresa en tiempo récord."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "planificacion-de-retiros-alpinos",
+    "category": "tourism",
+    "badge": "TURISMO",
+    "title": "Planificación de Retiros Alpinos",
+    "shortDescription": "Itinerarios a medida para santuarios de montaña ocultos y exclusivos alojamientos de eco-lujo en los Alpes.",
+    "description": "Diseñamos experiencias premium de retiro y descanso con una planeación meticulosa, equilibrio entre naturaleza y comodidad, y un enfoque curado según el perfil del grupo o la organización.",
+    "price": 450,
+    "priceSuffix": " desde",
+    "imageUrl": "/images/service-retreat.webp",
+    "imageAlt": "Planificación de retiros alpinos",
+    "detailMainImage": "/images/service-retreat.webp",
+    "detailSideTopImage": "/images/service-travel.jpg",
+    "detailSideBottomImage": "/images/service-retail.jpg",
+    "featured": true,
+    "featuredLayout": "bottom-left",
+    "features": [
+      {
+        "title": "Experiencias personalizadas",
+        "description": "Cada retiro se adapta a las necesidades del grupo, su objetivo y su ritmo."
+      },
+      {
+        "title": "Selección de destinos",
+        "description": "Seleccionamos locaciones y actividades con criterios de calidad, confort y valor."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "sprint-de-identidad-de-marca",
+    "category": "creative",
+    "badge": "CREATIVO",
+    "title": "Sprint de Identidad de Marca",
+    "shortDescription": "Un taller de alta velocidad para definir el alma visual, la voz y el posicionamiento en el mercado de su marca en solo 48 horas.",
+    "description": "Construimos una dirección de marca clara y accionable para productos, negocios y equipos que necesitan moverse rápido sin sacrificar consistencia visual, narrativa y diferenciación.",
+    "price": 1200,
+    "priceSuffix": " paquete",
+    "imageUrl": "/images/service-brand-sprint.jpg",
+    "imageAlt": "Sprint de identidad de marca",
+    "detailMainImage": "/images/service-brand-sprint.jpg",
+    "detailSideTopImage": "/images/service-travel.jpg",
+    "detailSideBottomImage": "/images/service-retail.jpg",
+    "featured": true,
+    "featuredLayout": "bottom-right",
+    "features": [
+      {
+        "title": "Sistema visual claro",
+        "description": "Define una dirección visual sólida para alinear piezas, canales y experiencia."
+      },
+      {
+        "title": "Velocidad de implementación",
+        "description": "Obtén decisiones clave de marca en poco tiempo para avanzar con enfoque."
+      }
+    ]
+  }
+]

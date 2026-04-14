@@ -1,1 +1,148 @@
-<p>contact works!</p>
+<section class="contact-page">
+  <div class="contact-page__container">
+    <div class="contact-page__heading">
+      <span class="contact-page__eyebrow">PONTE EN CONTACTO</span>
+
+      <h1 class="contact-page__title">
+        Hablemos sobre tu necesidad!
+      </h1>
+
+      <p class="contact-page__subtitle">
+        Podemos ayudarte a seleccionar el mejor servicio que se acomode a tu necesidad
+      </p>
+    </div>
+
+    <div class="contact-card">
+      <form
+        class="contact-form"
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
+        novalidate
+      >
+        <div class="contact-form__row">
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="fullName">
+              NOMBRE COMPLETO
+            </label>
+
+            <input
+              id="fullName"
+              type="text"
+              class="contact-form__input"
+              [class.contact-form__input--error]="hasError('fullName')"
+              formControlName="fullName"
+              placeholder="Alex Curador"
+            />
+
+            @if (hasError('fullName')) {
+              <p class="contact-form__error">
+                @if (fullName?.errors?.['required']) {
+                  El nombre completo es obligatorio.
+                } @else if (fullName?.errors?.['minlength']) {
+                  El nombre debe tener al menos 3 caracteres.
+                } @else if (fullName?.errors?.['maxlength']) {
+                  El nombre no puede superar los 80 caracteres.
+                }
+              </p>
+            }
+          </div>
+
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="email">
+              CORREO
+            </label>
+
+            <input
+              id="email"
+              type="email"
+              class="contact-form__input"
+              [class.contact-form__input--error]="hasError('email')"
+              formControlName="email"
+              placeholder="alex@ejemplo.com"
+            />
+
+            @if (hasError('email')) {
+              <p class="contact-form__error">
+                @if (email?.errors?.['required']) {
+                  El correo es obligatorio.
+                } @else if (email?.errors?.['email']) {
+                  Ingresa un correo válido.
+                } @else if (email?.errors?.['maxlength']) {
+                  El correo no puede superar los 120 caracteres.
+                }
+              </p>
+            }
+          </div>
+        </div>
+
+        <div class="contact-form__field">
+          <label class="contact-form__label" for="subject">
+            ASUNTO
+          </label>
+
+          <select
+            id="subject"
+            class="contact-form__input contact-form__select"
+            [class.contact-form__input--error]="hasError('subject')"
+            formControlName="subject"
+          >
+            <option value="" disabled>Consulta de Servicio</option>
+
+            @for (option of subjectOptions; track option) {
+              <option [value]="option">{{ option }}</option>
+            }
+          </select>
+
+          @if (hasError('subject')) {
+            <p class="contact-form__error">
+              Debes seleccionar un asunto.
+            </p>
+          }
+        </div>
+
+        <div class="contact-form__field">
+          <label class="contact-form__label" for="message">
+            MENSAJE
+          </label>
+
+          <textarea
+            id="message"
+            rows="6"
+            class="contact-form__textarea"
+            [class.contact-form__input--error]="hasError('message')"
+            formControlName="message"
+            placeholder="Cuéntanos sobre tu proyecto..."
+          ></textarea>
+
+          @if (hasError('message')) {
+            <p class="contact-form__error">
+              @if (message?.errors?.['required']) {
+                El mensaje es obligatorio.
+              } @else if (message?.errors?.['minlength']) {
+                El mensaje debe tener al menos 20 caracteres.
+              } @else if (message?.errors?.['maxlength']) {
+                El mensaje no puede superar los 1000 caracteres.
+              }
+            </p>
+          }
+        </div>
+
+        <div class="contact-form__actions">
+          <button
+            type="submit"
+            class="contact-form__button"
+            [disabled]="isSending"
+          >
+            {{ isSending ? 'Enviando...' : 'Enviar Mensaje' }}
+          </button>
+        </div>
+
+        @if (showSuccessMessage) {
+          <div class="contact-form__success">
+            Tu mensaje fue enviado correctamente.
+          </div>
+        }
+      </form>
+    </div>
+  </div>
+</section>

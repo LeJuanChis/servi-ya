@@ -14,44 +14,46 @@
     </div>
 
     <div class="featured-services__grid">
-      @for (service of services; track service.title) {
-        <article
-          class="featured-services__card"
-          [class.featured-services__card--large]="service.size === 'large'"
-          [class.featured-services__card--small]="service.size === 'small'"
-          [class.featured-services__card--top-left]="service.layout === 'top-left'"
-          [class.featured-services__card--top-right]="service.layout === 'top-right'"
-          [class.featured-services__card--bottom-left]="service.layout === 'bottom-left'"
-          [class.featured-services__card--bottom-right]="service.layout === 'bottom-right'"
-        >
-          <div class="featured-services__image-wrapper">
-            <img
-              class="featured-services__image"
-              [src]="service.imageUrl"
-              [alt]="service.imageAlt"
-            />
-          </div>
+      @if (services$ | async; as services) {
+        @for (service of services; track service.id) {
+          <article
+            class="featured-services__card"
+            [class.featured-services__card--large]="service.featuredLayout === 'top-left' || service.featuredLayout === 'bottom-right'"
+            [class.featured-services__card--small]="service.featuredLayout === 'top-right' || service.featuredLayout === 'bottom-left'"
+            [class.featured-services__card--top-left]="service.featuredLayout === 'top-left'"
+            [class.featured-services__card--top-right]="service.featuredLayout === 'top-right'"
+            [class.featured-services__card--bottom-left]="service.featuredLayout === 'bottom-left'"
+            [class.featured-services__card--bottom-right]="service.featuredLayout === 'bottom-right'"
+          >
+            <div class="featured-services__image-wrapper">
+              <img
+                class="featured-services__image"
+                [src]="service.imageUrl"
+                [alt]="service.imageAlt"
+              />
+            </div>
 
-          <div class="featured-services__content">
-            <span class="featured-services__category">
-              {{ service.category }}
-            </span>
+            <div class="featured-services__content">
+              <span class="featured-services__category">
+                {{ service.badge }}
+              </span>
 
-            <h3 class="featured-services__card-title">
-              {{ service.title }}
-            </h3>
+              <h3 class="featured-services__card-title">
+                {{ service.title }}
+              </h3>
 
-            @if (service.description) {
-              <p class="featured-services__card-description">
-                {{ service.description }}
-              </p>
-            }
+              @if (service.shortDescription) {
+                <p class="featured-services__card-description">
+                  {{ service.shortDescription }}
+                </p>
+              }
 
-            <a class="featured-services__link" [routerLink]="service.ctaLink">
-              {{ service.ctaText }} →
-            </a>
-          </div>
-        </article>
+              <a class="featured-services__link" [routerLink]="['/servicios', service.slug]">
+                Saber más →
+              </a>
+            </div>
+          </article>
+        }
       }
     </div>
   </div>

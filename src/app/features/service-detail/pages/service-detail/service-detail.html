@@ -1,1 +1,76 @@
-<p>service-detail works!</p>
+<section class="service-detail">
+  <div class="service-detail__container">
+    @if (service$ | async; as service) {
+      <div class="service-detail__gallery">
+        <div class="service-detail__main-image-wrapper">
+          <img
+            class="service-detail__main-image"
+            [src]="service.detailMainImage"
+            [alt]="service.imageAlt"
+          />
+        </div>
+
+        <div class="service-detail__side-images">
+          <div class="service-detail__side-image-card">
+            <img
+              class="service-detail__side-image"
+              [src]="service.detailSideTopImage"
+              [alt]="service.title"
+            />
+          </div>
+
+          <div class="service-detail__side-image-card">
+            <img
+              class="service-detail__side-image"
+              [src]="service.detailSideBottomImage"
+              [alt]="service.title"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="service-detail__info-row">
+        <div class="service-detail__content">
+          <span class="service-detail__badge">{{ service.badge }}</span>
+          <h1 class="service-detail__title">{{ service.title }}</h1>
+          <p class="service-detail__meta">Curación de la Integración. 3 meses</p>
+          <p class="service-detail__description">{{ service.description }}</p>
+        </div>
+
+        <aside class="service-detail__pricing-card">
+          <span class="service-detail__pricing-label">INVERSIÓN</span>
+
+          <div class="service-detail__price-row">
+            <span class="service-detail__price">
+              {{ service.price | currency:'USD':'symbol':'1.0-0' }}
+            </span>
+            <span class="service-detail__price-suffix">
+              {{ service.priceSuffix }}
+            </span>
+          </div>
+
+          <a class="service-detail__cta" [routerLink]="['/contacto']">
+            Contactar Ahora
+          </a>
+        </aside>
+      </div>
+
+      <div class="service-detail__features">
+        @for (feature of service.features; track feature.title) {
+          <article class="service-detail__feature-card">
+            <div class="service-detail__feature-icon">⊕</div>
+            <h2 class="service-detail__feature-title">{{ feature.title }}</h2>
+            <p class="service-detail__feature-description">
+              {{ feature.description }}
+            </p>
+          </article>
+        }
+      </div>
+    } @else {
+      <div class="service-detail__not-found">
+        <h1>Servicio no encontrado</h1>
+        <a [routerLink]="['/servicios']">Volver a servicios</a>
+      </div>
+    }
+  </div>
+</section>

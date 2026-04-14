@@ -1,0 +1,87 @@
+<section class="favorites-page">
+  <div class="favorites-page__container">
+    <div class="favorites-page__header">
+      <div>
+        <span class="favorites-page__eyebrow">MIS FAVORITOS</span>
+        <h1 class="favorites-page__title">Servicios guardados</h1>
+        <p class="favorites-page__subtitle">
+          Aquí encontrarás los servicios que marcaste con el corazón.
+        </p>
+      </div>
+
+      @if (hasFavorites()) {
+        <button
+          type="button"
+          class="favorites-page__clear-button"
+          (click)="clearFavorites()"
+        >
+          Limpiar favoritos
+        </button>
+      }
+    </div>
+
+    @if (hasFavorites()) {
+      <div class="favorites-page__grid">
+        @for (service of favorites(); track service.id) {
+          <article class="favorite-card">
+            <div class="favorite-card__image-wrapper">
+              <img
+                class="favorite-card__image"
+                [src]="service.imageUrl"
+                [alt]="service.imageAlt"
+              />
+            </div>
+
+            <div class="favorite-card__body">
+              <span class="favorite-card__badge">{{ service.badge }}</span>
+
+              <h2 class="favorite-card__title">{{ service.title }}</h2>
+
+              <p class="favorite-card__description">
+                {{ service.shortDescription }}
+              </p>
+
+              <div class="favorite-card__footer">
+                <div class="favorite-card__price-block">
+                  <span class="favorite-card__price">
+                    {{ service.price | currency:'USD':'symbol':'1.0-0' }}
+                  </span>
+                  <span class="favorite-card__price-suffix">
+                    {{ service.priceSuffix }}
+                  </span>
+                </div>
+
+                <div class="favorite-card__actions">
+                  <a
+                    class="favorite-card__details-button"
+                    [routerLink]="['/servicios', service.slug]"
+                  >
+                    Ver detalle
+                  </a>
+
+                  <button
+                    type="button"
+                    class="favorite-card__remove-button"
+                    (click)="removeFavorite(service.id)"
+                  >
+                    Quitar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    } @else {
+      <div class="favorites-page__empty-state">
+        <h2>No tienes servicios favoritos todavía</h2>
+        <p>
+          Explora el catálogo y usa el corazón para guardar los servicios que más te interesen.
+        </p>
+        <a class="favorites-page__browse-button" [routerLink]="['/servicios']">
+          Ver servicios
+        </a>
+      </div>
+    }
+  </div>
+</section>

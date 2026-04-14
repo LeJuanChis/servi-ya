@@ -1,1 +1,84 @@
-<p>service-list works!</p>
+<section class="services-page">
+  <div class="services-page__container">
+    <aside class="services-page__sidebar">
+      <h1 class="services-page__title">Servicios</h1>
+
+      <p class="services-page__subtitle">
+        Explore nuestra selección cuidadosamente elegida de servicios digitales y
+        físicos de primera calidad.
+      </p>
+
+      <nav class="services-page__categories" aria-label="Categorías de servicios">
+        @for (category of categories; track category.id) {
+          <button
+            type="button"
+            class="services-page__category-button"
+            [ngClass]="{
+              'services-page__category-button--active': activeCategory === category.id
+            }"
+            (click)="selectCategory(category.id)"
+          >
+            <span>{{ category.label }}</span>
+            <span class="services-page__category-arrow">›</span>
+          </button>
+        }
+      </nav>
+    </aside>
+
+    <div class="services-page__content">
+<div class="services-page__grid">
+  @if (filteredServices$ | async; as services) {
+    @for (service of services; track service.id) {
+      <article class="service-card">
+        <div class="service-card__image-wrapper">
+          <img
+            class="service-card__image"
+            [src]="service.imageUrl"
+            [alt]="service.imageAlt"
+          />
+
+          <div class="service-card__topbar">
+            <span class="service-card__badge">{{ service.badge }}</span>
+
+            <button
+              type="button"
+              class="service-card__icon-button"
+              [class.service-card__icon-button--active]="isFavorite(service.id)"
+              [attr.aria-label]="isFavorite(service.id) ? 'Quitar de favoritos' : 'Agregar a favoritos'"
+              (click)="toggleFavorite(service.id)"
+            >
+              ♥
+            </button>
+          </div>
+        </div>
+
+        <div class="service-card__body">
+          <h2 class="service-card__title">{{ service.title }}</h2>
+
+          <p class="service-card__description">
+            {{ service.shortDescription }}
+          </p>
+
+          <div class="service-card__footer">
+            <div class="service-card__price-block">
+              <span class="service-card__price">
+                {{ service.price | currency:'USD':'symbol':'1.0-0' }}
+              </span>
+              <span class="service-card__price-suffix">{{ service.priceSuffix }}</span>
+            </div>
+
+            <a
+              class="service-card__details-button"
+              [routerLink]="['/servicios', service.slug]"
+            >
+              Detalles
+            </a>
+          </div>
+        </div>
+      </article>
+    }
+  }
+</div>
+      </div>
+  </div>
+</section>
